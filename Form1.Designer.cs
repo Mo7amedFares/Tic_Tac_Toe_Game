@@ -123,7 +123,7 @@
             this.picXO1.TabIndex = 15;
             this.picXO1.Tag = "?";
             this.picXO1.UseVisualStyleBackColor = false;
-            this.picXO1.Click += new System.EventHandler(this.picXO1_Click);
+            this.picXO1.Click += new System.EventHandler(this.picXO_Click);
             // 
             // picXO4
             // 
@@ -139,7 +139,7 @@
             this.picXO4.TabIndex = 16;
             this.picXO4.Tag = "?";
             this.picXO4.UseVisualStyleBackColor = false;
-            this.picXO4.Click += new System.EventHandler(this.picXO4_Click);
+            this.picXO4.Click += new System.EventHandler(this.picXO_Click);
             // 
             // picXO5
             // 
@@ -155,7 +155,7 @@
             this.picXO5.TabIndex = 17;
             this.picXO5.Tag = "?";
             this.picXO5.UseVisualStyleBackColor = false;
-            this.picXO5.Click += new System.EventHandler(this.picXO5_Click);
+            this.picXO5.Click += new System.EventHandler(this.picXO_Click);
             // 
             // picXO6
             // 
@@ -171,7 +171,7 @@
             this.picXO6.TabIndex = 18;
             this.picXO6.Tag = "?";
             this.picXO6.UseVisualStyleBackColor = false;
-            this.picXO6.Click += new System.EventHandler(this.picXO6_Click);
+            this.picXO6.Click += new System.EventHandler(this.picXO_Click);
             // 
             // picXO3
             // 
@@ -187,7 +187,7 @@
             this.picXO3.TabIndex = 19;
             this.picXO3.Tag = "?";
             this.picXO3.UseVisualStyleBackColor = false;
-            this.picXO3.Click += new System.EventHandler(this.picXO3_Click);
+            this.picXO3.Click += new System.EventHandler(this.picXO_Click);
             // 
             // picXO2
             // 
@@ -204,7 +204,7 @@
             this.picXO2.TabIndex = 20;
             this.picXO2.Tag = "?";
             this.picXO2.UseVisualStyleBackColor = false;
-            this.picXO2.Click += new System.EventHandler(this.picXO2_Click);
+            this.picXO2.Click += new System.EventHandler(this.picXO_Click);
             // 
             // picXO7
             // 
@@ -220,7 +220,7 @@
             this.picXO7.TabIndex = 21;
             this.picXO7.Tag = "?";
             this.picXO7.UseVisualStyleBackColor = false;
-            this.picXO7.Click += new System.EventHandler(this.picXO7_Click);
+            this.picXO7.Click += new System.EventHandler(this.picXO_Click);
             // 
             // picXO8
             // 
@@ -236,7 +236,7 @@
             this.picXO8.TabIndex = 22;
             this.picXO8.Tag = "?";
             this.picXO8.UseVisualStyleBackColor = false;
-            this.picXO8.Click += new System.EventHandler(this.picXO8_Click);
+            this.picXO8.Click += new System.EventHandler(this.picXO_Click);
             // 
             // picXO9
             // 
@@ -252,7 +252,7 @@
             this.picXO9.TabIndex = 23;
             this.picXO9.Tag = "?";
             this.picXO9.UseVisualStyleBackColor = false;
-            this.picXO9.Click += new System.EventHandler(this.picXO9_Click);
+            this.picXO9.Click += new System.EventHandler(this.picXO_Click);
             // 
             // BtnResetScores
             // 

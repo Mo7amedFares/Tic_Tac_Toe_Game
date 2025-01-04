@@ -14,7 +14,7 @@ namespace Tic_Tac_Toe_Game
     {
         int scorePlayer1 = 0;
         int scorePlayer2 = 0;
-        int gameCounter = 0;
+        int gameCount = 0;
 
         enum enWinner
         {
@@ -38,7 +38,7 @@ namespace Tic_Tac_Toe_Game
                     DisableAllCells();
                     LblPlayer.Text = "Game Over";
                     scorePlayer1++;
-                    gameCounter++;
+                    gameCount++;
                     UpdateScoreboard();
                     break;
                 case enWinner.player2:
@@ -46,23 +46,33 @@ namespace Tic_Tac_Toe_Game
                     DisableAllCells();
                     LblPlayer.Text = "Game Over";
                     scorePlayer2++;
-                    gameCounter++;
+                    gameCount++;
                     UpdateScoreboard();
                     break;
                 case enWinner.draw:
                     LplWinner.Text = "Draw";
                     DisableAllCells();
                     LblPlayer.Text = "Game Over";
-                    gameCounter++;
+                    gameCount++;
                     break;
                 case enWinner.IN_PROGRESS:
                     break;
             }
         }
-
+        bool chickValue(Button button1 , Button button2 , Button button3)
+        {
+            if (button1.Tag == button2.Tag && button2.Tag == button3.Tag && button1.Tag.ToString() != "?")
+            {
+                button1.BackColor = Color.Green;
+                button2.BackColor = Color.Green;
+                button3.BackColor = Color.Green;
+                return true;
+            }
+            return false;
+        }
         private enWinner IsWinner()
         {
-            if (picXO1.Tag == picXO2.Tag && picXO2.Tag == picXO3.Tag && picXO1.Tag.ToString() != "?")
+            if (chickValue(picXO1 , picXO2 , picXO3))
             {
                 if (picXO1.Tag.ToString() == "X")
                     return enWinner.player1;
@@ -70,49 +80,49 @@ namespace Tic_Tac_Toe_Game
                     return enWinner.player2;
 
             }
-            else if (picXO4.Tag == picXO5.Tag && picXO5.Tag == picXO6.Tag && picXO6.Tag.ToString() != "?")
+            else if (chickValue(picXO4 , picXO5 , picXO6 ))
             {
                 if (picXO4.Tag.ToString() == "X")
                     return enWinner.player1;
                 else
                     return enWinner.player2;
             }
-            else if (picXO7.Tag == picXO8.Tag && picXO8.Tag == picXO9.Tag && picXO9.Tag.ToString() != "?")
+            else if (chickValue(picXO7, picXO8, picXO9))
             {
                 if (picXO7.Tag.ToString() == "X")
                     return enWinner.player1;
                 else
                     return enWinner.player2;
             }
-            else if (picXO1.Tag == picXO4.Tag && picXO4.Tag == picXO7.Tag && picXO7.Tag.ToString() != "?")
+            else if (chickValue(picXO1, picXO4, picXO7))
             {
                 if (picXO1.Tag.ToString() == "X")
                     return enWinner.player1;
                 else
                     return enWinner.player2;
             }
-            else if (picXO2.Tag == picXO5.Tag && picXO5.Tag == picXO8.Tag && picXO8.Tag.ToString() != "?")
+            else if (chickValue(picXO2, picXO5, picXO8))
             {
                 if (picXO2.Tag.ToString() == "X")
                     return enWinner.player1;
                 else
                     return enWinner.player2;
             }
-            else if (picXO3.Tag == picXO6.Tag && picXO6.Tag == picXO9.Tag && picXO9.Tag.ToString() != "?")
+            else if (chickValue(picXO3, picXO6, picXO9))
             {
                 if (picXO3.Tag.ToString() == "X")
                     return enWinner.player1;
                 else
                     return enWinner.player2;
             }
-            else if (picXO1.Tag == picXO5.Tag && picXO5.Tag == picXO9.Tag && picXO9.Tag.ToString() != "?")
+            else if (chickValue(picXO1, picXO5, picXO9))
             {
                 if (picXO1.Tag.ToString() == "X")
                     return enWinner.player1;
                 else
                     return enWinner.player2;
             }
-            else if (picXO3.Tag == picXO5.Tag && picXO5.Tag == picXO7.Tag && picXO7.Tag.ToString() != "?")
+            else if (chickValue(picXO3, picXO5, picXO7))
             {
                 if (picXO3.Tag.ToString() == "X")
                     return enWinner.player1;
@@ -127,30 +137,25 @@ namespace Tic_Tac_Toe_Game
             return enWinner.IN_PROGRESS;
 
         }
+        void ResetButton(Button button)
+        {
+            button.Image = Properties.Resources.question_mark_96;
+            button.Tag = "?";
+            button.BackColor = Color.Black;
+            button.Enabled = true;
+        }
 
         void ResetGame()
         {
-            picXO1.Image = Properties.Resources.question_mark_96;
-            picXO2.Image = Properties.Resources.question_mark_96;
-            picXO3.Image = Properties.Resources.question_mark_96;
-            picXO4.Image = Properties.Resources.question_mark_96;
-            picXO5.Image = Properties.Resources.question_mark_96;
-            picXO6.Image = Properties.Resources.question_mark_96;
-            picXO7.Image = Properties.Resources.question_mark_96;
-            picXO8.Image = Properties.Resources.question_mark_96;
-            picXO9.Image = Properties.Resources.question_mark_96;
-
-            picXO1.Tag = "?";
-            picXO2.Tag = "?";
-            picXO3.Tag = "?";
-            picXO4.Tag = "?";
-            picXO5.Tag = "?";
-            picXO6.Tag = "?";
-            picXO7.Tag = "?";
-            picXO8.Tag = "?";
-            picXO9.Tag = "?";
-
-            EnableAllCells();
+            ResetButton(picXO1);
+            ResetButton(picXO2);
+            ResetButton(picXO3);
+            ResetButton(picXO4);
+            ResetButton(picXO5);
+            ResetButton(picXO6);
+            ResetButton(picXO7);
+            ResetButton(picXO8);
+            ResetButton(picXO9);
 
             LblPlayer.Text = "Turn : Player1";
             LplWinner.Text = "In Progress";
@@ -167,19 +172,6 @@ namespace Tic_Tac_Toe_Game
             picXO7.Enabled = false;
             picXO8.Enabled = false;
             picXO9.Enabled = false;
-        }
-
-        void EnableAllCells()
-        {
-            picXO1.Enabled = true;
-            picXO2.Enabled = true;
-            picXO3.Enabled = true;
-            picXO4.Enabled = true;
-            picXO5.Enabled = true;
-            picXO6.Enabled = true;
-            picXO7.Enabled = true;
-            picXO8.Enabled = true;
-            picXO9.Enabled = true;
         }
 
         void Clicked(Button button)
@@ -212,56 +204,9 @@ namespace Tic_Tac_Toe_Game
             lblScorePlayer2.Text = $"Player 2: {scorePlayer2}";
         }
 
-        private void picXO1_Click(object sender, EventArgs e)
-        {
-            Clicked(picXO1);
-        }
-
         private void BtnRestartGame_Click(object sender, EventArgs e)
         {
             ResetGame();
-        }
-
-
-
-        private void picXO2_Click(object sender, EventArgs e)
-        {
-            Clicked(picXO2);
-        }
-
-        private void picXO3_Click(object sender, EventArgs e)
-        {
-            Clicked(picXO3);
-        }
-
-        private void picXO4_Click(object sender, EventArgs e)
-        {
-            Clicked(picXO4);
-        }
-
-        private void picXO5_Click(object sender, EventArgs e)
-        {
-            Clicked(picXO5);
-        }
-
-        private void picXO6_Click(object sender, EventArgs e)
-        {
-            Clicked(picXO6);
-        }
-
-        private void picXO7_Click(object sender, EventArgs e)
-        {
-            Clicked(picXO7);
-        }
-
-        private void picXO8_Click(object sender, EventArgs e)
-        {
-            Clicked(picXO8);
-        }
-
-        private void picXO9_Click(object sender, EventArgs e)
-        {
-            Clicked(picXO9);
         }
 
         private void BtnResetScores_Click(object sender, EventArgs e)
@@ -271,5 +216,10 @@ namespace Tic_Tac_Toe_Game
             UpdateScoreboard();
             ResetGame();
         }
+        private void picXO_Click(object sender, EventArgs e)
+        {
+            Clicked((Button)sender);
+        }
+
     }
 }
